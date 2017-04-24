@@ -16,6 +16,7 @@ class ExpressionTree : private BinaryTree<std::string>{
 	  void BuildTree(std::string expr, BinaryTreeNode<std::string> * curr);
       void setExpression(std::string exp);
       double getResult() const;
+	  double getResult(BinaryTreeNode<std::string> * ptr) const;
       void printParseTreeInOrder(std::ostream& os) const;
       void printParseTreePostOrder(std::ostream& os) const;
 	  bool isOperator(char ch) const;

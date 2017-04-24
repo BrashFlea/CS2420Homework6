@@ -41,6 +41,8 @@ public:
 	void deleteTree(BinaryTreeNode<T>* node);
 	std::string toStringInOrder(BinaryTreeNode<T>* node) const;
 	std::string toStringInOrder() const;
+	std::string toStringPostOrder(BinaryTreeNode<T>* node) const;
+	std::string toStringPostOrder() const;
 	void insert(T value);
 	void insert(BinaryTreeNode<T>* node, T value);
 	bool find(const T& value) const;
@@ -73,6 +75,31 @@ std::string BinaryTree<T>::toStringInOrder(BinaryTreeNode<T>* node) const {
 template <class T>
 std::string BinaryTree<T>::toStringInOrder() const {
 	return toStringInOrder(root);
+}
+
+template <class T>
+std::string BinaryTree<T>::toStringPostOrder(BinaryTreeNode<T>* node) const {
+	std::string traversal;
+	if (node == NULL) {
+		return traversal;
+	}
+	//traverse left
+	traversal = toStringPostOrder(node->left);
+	//traverse right
+	traversal += toStringPostOrder(node->right);
+	//visit current
+	traversal += (node->data) + " ";
+	return traversal;
+}
+
+template <class T>
+std::string BinaryTree<T>::toStringPostOrder() const {
+	std::string str = toStringPostOrder(root);
+
+	//Remove trailing space from post order traversal
+	str.pop_back();
+
+	return str;
 }
 
 template <class T>
