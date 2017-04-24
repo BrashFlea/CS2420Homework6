@@ -27,7 +27,7 @@ struct BinaryTreeNode {
 template <class T>
 class BinaryTree {
 
-private:
+protected:
 	BinaryTreeNode<T>* root;
 	int size;
 
