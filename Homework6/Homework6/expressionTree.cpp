@@ -1,4 +1,9 @@
 #include "expressionTree.h"
+#include <math.h> //For pow
+
+
+/*For linux compile with g++ -std=c++11*/
+
 
 //Creates an empty expression tree
 ExpressionTree::ExpressionTree():BinaryTree(){

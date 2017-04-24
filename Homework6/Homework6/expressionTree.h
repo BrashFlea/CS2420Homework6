@@ -6,6 +6,8 @@
 #include <iostream>
 #include <string>
 
+/*For linux compile with g++ -std=c++11*/
+
 class ExpressionTree : private BinaryTree<std::string>{
    private:
 	   int pos = 0;

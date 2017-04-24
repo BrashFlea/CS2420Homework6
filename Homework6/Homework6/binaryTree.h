@@ -4,6 +4,8 @@
 #include <cstddef>
 #include <ostream>
 
+/*For linux compile with g++ -std=c++11*/
+
 template <class T>
 struct BinaryTreeNode {
 	T data;
