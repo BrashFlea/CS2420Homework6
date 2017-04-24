@@ -60,16 +60,25 @@ void ExpressionTree::BuildTree(std::string expr, BinaryTreeNode<std::string> * c
 
 //Clear the previous tree and builds a new tree from the given expression
 void ExpressionTree::setExpression(std::string exp){
-	
+	/*
+	pos = 0;
+
 	//Clear the previous tree
 	BinaryTreeNode<std::string> * tmp = root;
+
 	//Empty tree check
 	if (tmp) {
 		deleteTree(tmp);
 	}
+
 	//Build  a new tree from expression
-	BuildTree(exp, root);
-	
+	tmp = new BinaryTreeNode<std::string>();
+	tmp->data = "";
+	tmp->left = NULL;
+	tmp->right = NULL;
+
+	BuildTree(exp, tmp);
+	*/
 }
 
 //Returns the results of evaluating the expression tree
@@ -80,7 +89,7 @@ double ExpressionTree::getResult() const{
 
 //Prints the tree using inOrderTraversal
 void ExpressionTree::printParseTreeInOrder(std::ostream& os) const{
-	//toStringInOrder(&root);
+	os << toStringInOrder(root);
 }
 
 //Prints the tree using postOrderTraversal

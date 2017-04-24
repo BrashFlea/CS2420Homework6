@@ -64,7 +64,7 @@ std::string BinaryTree<T>::toStringInOrder(BinaryTreeNode<T>* node) const {
 	//traverse left
 	traversal = toStringInOrder(node->left);
 	//visit current
-	traversal += std::to_string(node->data) + " ";
+	traversal += (node->data);
 	//traverse right
 	traversal += toStringInOrder(node->right);
 	return traversal;
