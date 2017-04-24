@@ -29,7 +29,7 @@ void ExpressionTree::BuildTree(std::string expr, BinaryTreeNode<std::string> * c
 	}
 	// go left
 	if (expr[pos] == '(') {
-		curr->left = new BinaryTreeNode<std::string>();
+		curr->left = new BinaryTreeNode<std::string>("");
 		pos++;
 		BuildTree(expr, curr->left);
 	}
@@ -47,7 +47,7 @@ void ExpressionTree::BuildTree(std::string expr, BinaryTreeNode<std::string> * c
 	// go right
 	if (isOperator(expr[pos])) {
 		curr->data = expr[pos];
-		curr->right = new BinaryTreeNode<std::string>();
+		curr->right = new BinaryTreeNode<std::string>("");
 		pos++;
 		BuildTree(expr, curr->right);
 	}
@@ -77,7 +77,7 @@ void ExpressionTree::setExpression(std::string exp){
 	root->data = "";
 
 
-	BuildTree(exp, tmp);
+	BuildTree(exp, root);
 }
 
 //Returns the results of evaluating the expression tree
@@ -91,10 +91,17 @@ double ExpressionTree::getResult(BinaryTreeNode<std::string> * ptr) const {
 	double def = 0.00;
 	int index = 0;
 
+	//Null ptr check
 	if (ptr == NULL) {
 		return def;
 	}
 
+	//Empty node check
+	if (ptr->data == "") {
+		return def;
+	}
+
+	//Expression Tree evaluation
 	if (ptr->left == NULL && ptr->right == NULL) {
 		return std::stod(ptr->data); //string to double conversion
 	}
